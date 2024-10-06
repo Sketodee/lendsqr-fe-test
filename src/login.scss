@@ -1,0 +1,137 @@
+@import './variables.scss';
+.login-page {
+  display: flex;
+  height: 100vh;
+  font-family: "Avenir", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: $text-color;
+
+  .login-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    padding: 8rem;
+
+    .logo {
+      max-width: 200px;
+      margin-bottom: 2rem;
+    }
+
+    .login-image {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .login-form-container {
+    flex: 1;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    padding: 50px;
+  }
+
+  .login-form {
+    width: 100%;
+    max-width: 500px;
+
+    .login-header {
+      color: #213F7D;
+      font-size: 40px;
+      font-weight:700
+    }
+
+    p {
+      color: #545F7D;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 24px;
+
+      input {
+        width: 100%;
+        padding: 16px 0px 16px 16px;
+        border: 1px solid  $text-color;
+        border-radius: 5px;
+        font-size: 16px;
+        font-family: "Avenir", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color: #545F7D;
+
+        &:focus {
+          outline: none;
+          border-color: #39CDCC;
+        }
+      }
+
+      .show-password {
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #39CDCC;
+        font-weight: bold;
+        cursor: pointer;
+        font-family: "Avenir", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+    }
+
+    .forgot-password {
+      display: block;
+      color: #39CDCC;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 30px;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 16px;
+      background-color: #39CDCC;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      // font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-family: "Avenir", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+
+      &:hover {
+        background-color: darken(#39CDCC, 10%);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    flex-direction: column;
+
+    .login-image {
+      display: none; // Hide image on small screens
+    }
+
+    .login-form-container {
+      padding: 20px;
+    }
+  }
+}

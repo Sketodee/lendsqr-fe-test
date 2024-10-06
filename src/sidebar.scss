@@ -1,0 +1,70 @@
+@import './variables.scss';
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: $sidebar-collapsed-width;
+    background-color: $light-color ;
+    color: BLACK;
+    transition: width 0.3s ease;
+    overflow-x: hidden;
+  
+    .logo{
+      padding: 20px;
+    }
+
+    &.open {
+      width: $sidebar-width;
+    }
+  
+    .sidebar-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      color: red;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  
+    nav {
+      margin-top: 30px;
+      color: $text-color;
+
+      .link {
+        padding: 10px 0px;
+        cursor: pointer;
+        text-decoration: none; 
+        color: inherit;      
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      
+      p{
+        padding: 0px 20px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+  
+      ul {
+        list-style-type: none;
+        padding: 0;
+  
+        li {
+          padding: 10px 20px;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: rgba($secondary-color, 0.1); 
+            border-left: 5px solid $secondary-color;
+            color: $text-bold-color;
+          }
+        }
+      }
+    }
+  }
+  

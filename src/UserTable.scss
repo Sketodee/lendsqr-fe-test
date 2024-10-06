@@ -1,0 +1,119 @@
+@import './variables.scss';
+
+.user-table-container {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: $text-color;
+  max-width: 1500px;
+  margin: 0 auto;
+  position: relative;
+  
+
+  .user-table {
+    width: 100%;
+    padding:20px 0px;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    margin:20px 0px;
+    // border-radius: $border-radius;
+    // box-shadow: $box-shadow;
+
+    .user-header  {
+      font-weight: 600;
+      font-style: normal;
+      font-size: 12px;
+      color: $text-color;
+      width:16.67%
+    }
+
+
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+
+    }
+
+    th {
+      font-weight: bold;
+      color: #545454;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+    }
+
+    .status {
+      padding: 0.25rem 0.5rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+
+      &.active {
+        background-color: #e6f7ea;
+        color: #39cd62;
+      }
+
+      &.inactive {
+        background-color: #f5f5f5;
+        color: #545454;
+      }
+
+      &.pending {
+        background-color: #fff7e6;
+        color: #e9b200;
+      }
+
+      &.blacklisted {
+        background-color: #ffe6e6;
+        color: #e4033b;
+      }
+    }
+
+    .ellipsis-menu {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+
+    .pagination-controls {
+      display: flex;
+      gap: 0.5rem;
+
+      button {
+        padding: 0.25rem 0.5rem;
+        border: none;
+        background-color: white;
+        cursor: pointer;
+        font-family: "Work Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color: $text-color;
+
+   
+        &.active {
+          color: white;
+          color: $text-bold-color;
+          font-weight: bold;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

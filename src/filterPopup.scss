@@ -1,0 +1,82 @@
+.filter-popup {
+    position: absolute;
+    top: 0%; // Adjust based on your layout
+    left: 0px; // Adjust based on your layout
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    z-index: 1000;
+  
+    .filter-content {
+      h2 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #545f7d;
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+  
+        label {
+          display: block;
+          margin-bottom: 5px;
+          font-size: 14px;
+          color: #545f7d;
+        }
+  
+        input,
+        select {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #e5e7eb;
+          border-radius: 4px;
+          font-size: 14px;
+          font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  
+          &:focus {
+            outline: none;
+            border-color: #39cdcc;
+          }
+        }
+      }
+  
+      .button-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+  
+        button {
+          padding: 10px 20px;
+          border-radius: 4px;
+          font-size: 14px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &.reset-button {
+            background-color: white;
+            color: #545f7d;
+            border: 1px solid #545f7d;
+  
+            &:hover {
+              background-color: #f3f4f6;
+            }
+          }
+  
+          &.filter-button {
+            background-color: #39cdcc;
+            color: white;
+            border: none;
+  
+            &:hover {
+              background-color: darken(#39cdcc, 10%);
+            }
+          }
+        }
+      }
+    }
+  }

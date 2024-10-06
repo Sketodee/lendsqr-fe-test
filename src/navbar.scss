@@ -1,0 +1,115 @@
+@import './variables.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+
+  &__search {
+    flex-grow: 1;
+    max-width: 400px;
+    margin-right: 2rem;
+
+    form {
+      display: flex;
+      position: relative;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+
+      font-family: "Work Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      color: $text-color;
+
+
+      &:focus {
+        outline: none;
+        border-color: #39cdcc;
+      }
+    }
+
+    button {
+      position: absolute;
+      border-radius: 0px 8px 8px 0px;
+      right: 0.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: $secondary-color;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  &__docs {
+    margin-right: 1.5rem;
+    text-decoration: none;
+    color: #213f7d;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__notifications {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #213f7d;
+    cursor: pointer;
+    margin-right: 1.5rem;
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+
+  &__username {
+    margin-right: 0.5rem;
+    color: #213f7d;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+
+    &__search {
+      margin-right: 0;
+      margin-bottom: 1rem;
+      max-width: none;
+    }
+
+    &__actions {
+      justify-content: space-between;
+    }
+  }
+}
