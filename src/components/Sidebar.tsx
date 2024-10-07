@@ -10,24 +10,20 @@ import { TbMoneybag } from "react-icons/tb";
 import { AiTwotoneBank } from "react-icons/ai";
 import { IoBarChartSharp } from "react-icons/io5";
 import { RiDiscountPercentFill, RiArrowDownSLine } from "react-icons/ri";
+import { SidebarProps } from '../types/types';
 
-interface SidebarProps {
-    isOpen: boolean;
-    toggle: () => void;
-  }
-  
+
   const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggle }) => {
     return (
         <div className={`sidebar ${isOpen ? 'open' : ''}`}>
         <button className="sidebar-toggle" onClick={toggle}>
           {isOpen ? '×' : '☰'}
         </button>
-        <img className='logo' src="/logo.png" alt="" />
+        {isOpen && <img className='logo' src="/logo.png" alt="" />}
         <nav>
           <ul>
             <li><Link to="/dashboard" className='link'> <BiSolidBriefcase /> {isOpen && 'Switch Organization' } {isOpen && <RiArrowDownSLine/>} </Link></li>
             <li><Link to="/dashboard" className='link'><HiHome/> {isOpen && 'Dashboard'}</Link></li>
-            {/* <li><Link to="/profile" className='link'>Profile</Link></li> */}
           </ul>
 
           <p>CUSTOMERS</p>

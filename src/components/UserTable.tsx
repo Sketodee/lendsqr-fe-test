@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import '../UserTable.scss';
 import { useUsers } from '../hooks/useUsers';
-import { User } from '../dB/indexedDBService';
 import { MdFilterList } from "react-icons/md";
 import FilterPopup from './FilterPopUp';
+import { Column, User } from '../types/types';
 
-
-
-interface Column {
-  key: keyof User;
-  header: string;
-}
 
 const columns: Column[] = [
   { key: 'orgName', header: 'ORGANIZATION' },
@@ -24,11 +17,14 @@ const columns: Column[] = [
 
 const UserTable = () => {
   const [sortColumn, setSortColumn] = useState<keyof User | null>(null);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const { users, loading, error } = useUsers();
+  const navigate = useNavigate()
+  
 
   const toggleFilter = () => {
     setIsFilterOpen(!isFilterOpen);
@@ -36,16 +32,10 @@ const UserTable = () => {
 
   const handleFilter = (filters: any) => {
     console.log('Applying filters:', filters);
-    // Implement your filter logic here
   };
 
-  const { users, loading, error } = useUsers();
-//   setFetchedUsers(users)
-
-  const navigate = useNavigate()
-
   const goToDetails = (id: number) => {
-    navigate(`/profile/${id}`);  // Programmatically navigate to '/dashboard/:id'
+    navigate(`/profile/${id}`); 
   };
 
   const handleSort = (column: keyof User) => {
@@ -70,7 +60,6 @@ const UserTable = () => {
   );
 
   const totalPages = Math.ceil(users.length / itemsPerPage);
-//   const totalPages = Math.ceil(100 / itemsPerPage);
 
   return (
     <div className="user-table-container">
@@ -79,21 +68,17 @@ const UserTable = () => {
           <tr >
             {columns.map((column) => (
               <th className='user-header' key={column.key} onClick={toggleFilter}>
-                {column.header} <span ><MdFilterList/></span>
-                
-                {/* {sortColumn === column.key && (
-                  <span>{sortDirection === 'asc' ? ' ▲' : ' ▼'}</span>
-                )} */}
+                {column.header} <span ><MdFilterList /></span>
               </th>
             ))}
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           {paginatedUsers.map((user, index) => (
-            <tr onClick={() => goToDetails(user.id)} key={index}>
+            <tr key={index}>
               {columns.map((column) => (
-                <td key={column.key}>
+                <td onClick={() => goToDetails(user.id)} key={column.key}>
                   {column.key === 'createdAt' ? (
                     // <span className={`status ${user.status.toLowerCase()}`}>
                     //   {user.status}
@@ -104,8 +89,8 @@ const UserTable = () => {
                   )}
                 </td>
               ))}
-              <td>
-                <button className="ellipsis-menu">⋮</button>
+              <td >
+                <button className="ellipsis-menu" >⋮</button>
               </td>
             </tr>
           ))}
@@ -140,7 +125,7 @@ const UserTable = () => {
           </button>
         </div>
 
-        
+
       </div>
       <FilterPopup
         isOpen={isFilterOpen}

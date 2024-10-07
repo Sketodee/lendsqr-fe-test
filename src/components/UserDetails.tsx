@@ -1,65 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { UserData } from '../types/types';
 // import '../UserDetails.scss';
 
-interface Profile {
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  avatar: string;
-  gender: string;
-  bvn: string;
-  address: string;
-  currency: string;
-}
-
-interface Guarantor {
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  gender: string;
-  address: string;
-}
-
-interface Socials {
-  facebook: string;
-  instagram: string;
-  twitter: string;
-}
-
-interface Education {
-  level: string;
-  employmentStatus: string;
-  sector: string;
-  duration: string;
-  officeEmail: string;
-  monthlyIncome: string[]; // Array of strings
-  loanRepayment: string;
-}
-
-interface UserDetails {
-  createdAt: string; // ISO date string
-  orgName: string;
-  userName: string;
-  email: string;
-  phoneNumber: string;
-  lastActiveDate: string; // ISO date string
-  profile: Profile;
-  guarantor: Guarantor;
-  accountBalance: string;
-  accountNumber: string;
-  socials: Socials;
-  education: Education;
-  id: string;
-}
 
 
 const UserDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
 
-  const [user, setUser] = useState<UserDetails | null>(); // Manage user data
-  const [loading, setLoading] = useState<boolean>(true); // Loading state
-  const [error, setError] = useState<string | null>(null); // Error state
+  const [user, setUser] = useState<UserData | null>(); 
+  const [loading, setLoading] = useState<boolean>(true); 
+  const [error, setError] = useState<string | null>(null); 
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -69,47 +20,17 @@ const UserDetails: React.FC = () => {
           throw new Error('Error fetching user details');
         }
         const data = await response.json();
-        setUser(data); // Populate user data
+        setUser(data); 
         setLoading(false);
       } catch (err: any) {
         setError(err?.message);
         setLoading(false);
       }
     };
-
     fetchUserDetails();
   }, [id]);
 
-  // In a real application, you would fetch the user details based on the id
-  // const user: UserDetails = {
-  //   fullName: "Grace Effiom",
-  //   accountBalance: "₦200,000.00",
-  //   accountNumber: "9912345678",
-  //   tier: 2,
-  //   bvn: "123456789",
-  //   phoneNumber: "07060780922",
-  //   email: "grace@gmail.com",
-  //   gender: "Female",
-  //   maritalStatus: "Single",
-  //   children: "None",
-  //   typeOfResidence: "Parent's Apartment",
-  //   education: "B.Sc",
-  //   employmentStatus: "Employed",
-  //   sectorOfEmployment: "FinTech",
-  //   employmentDuration: "2 years",
-  //   officeEmail: "grace@lendsqr.com",
-  //   monthlyIncome: "₦200,000.00 - ₦400,000.00",
-  //   loanRepayment: "40,000",
-  //   twitter: "@grace_effiom",
-  //   facebook: "Grace Effiom",
-  //   instagram: "@grace_effiom",
-  //   guarantor: {
-  //     fullName: "Debby Ogana",
-  //     phoneNumber: "07060780922",
-  //     email: "debby@gmail.com",
-  //     relationship: "Sister",
-  //   },
-  // };
+
 
   return (
     <div>
@@ -117,7 +38,17 @@ const UserDetails: React.FC = () => {
 
         <div className="user-details">
           <Link to="/dashboard" className="back-link">← Back to Users</Link>
-          <h1>User Details </h1>
+          <div className='user-actions'>
+            <h1>User Details </h1>
+            <div className="user-action-buttons">
+              <button className="action-button blacklist" >
+                BLACKLIST USER
+              </button>
+              <button className="action-button activate" >
+                ACTIVATE USER
+              </button>
+            </div>
+          </div>
 
           <div className="user-header">
             <div className="user-subheader">
@@ -131,15 +62,16 @@ const UserDetails: React.FC = () => {
               </div>
               <div className="user-tier">
                 <p>User's Tier</p>
-                {/* <div className="stars">
-                 {'★'.repeat(user.tier)}{'☆'.repeat(3 - user.tier)}
-               </div> */}
+                <div className="stars">
+                  {'★'.repeat(3)}{'☆'.repeat(3 - 3)}
+                </div>
               </div>
               <div className="user-balance">
                 <h3> <span style={{ textDecoration: "line-through" }}>N</span> {user.accountBalance}</h3>
                 <p>{user.profile.bvn}/Providus Bank</p>
               </div>
             </div>
+
 
 
             <div className="tabs">

@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { FaRegBell } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
-
-interface NavbarProps {
-    toggleSidebar: () => void;
-  }
-  
 
   const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -17,9 +11,8 @@ interface NavbarProps {
 
   const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Implement search functionality here
-    console.log('Searching for:', searchQuery);
   };
+
     return (
       <header className="header">
       <div className="header__search">
@@ -48,11 +41,6 @@ interface NavbarProps {
         </div>
       </div>
     </header>
-      //   <div className="topbar">
-      //   <button className="sidebar-toggle" onClick={toggleSidebar}>☰</button>
-      //   <Link to="/" className="app-title">My App</Link>
-      //   <button className="login-button">Login</button>
-      // </div>
     );
   };
 

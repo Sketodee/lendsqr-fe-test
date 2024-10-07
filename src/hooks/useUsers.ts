@@ -1,6 +1,7 @@
 // useUsers.ts
 import { useState, useEffect } from 'react';
-import { indexedDBService, User } from '../dB/indexedDBService';
+import { indexedDBService} from '../dB/indexedDBService';
+import { User } from '../types/types';
 
 const filterUserData = (data: any): User => ({
     id: data.id,
@@ -34,7 +35,7 @@ export const useUsers = () => {
         if (!response.ok) {
           throw new Error('Failed to fetch users');
         }
-        const rawData = await response.json();
+           const rawData = await response.json();
         // const fetchedUsers: User[] = await response.json();
 
         const fetchedUsers: User[] = Array.isArray(rawData) 

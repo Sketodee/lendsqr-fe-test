@@ -1,20 +1,5 @@
 import React, { useState } from 'react';
-import '../filterPopup.scss';
-
-interface FilterPopupProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onFilter: (filters: FilterState) => void;
-}
-
-interface FilterState {
-  organization: string;
-  username: string;
-  email: string;
-  date: string;
-  phoneNumber: string;
-  status: string;
-}
+import { FilterPopupProps, FilterState } from '../types/types';
 
 const FilterPopup: React.FC<FilterPopupProps> = ({ isOpen, onClose, onFilter }) => {
   const [filters, setFilters] = useState<FilterState>({

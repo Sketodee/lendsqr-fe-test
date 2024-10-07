@@ -1,4 +1,4 @@
-import './main.scss';
+import '../src/styles/main.scss';
 import Layout from './components/Layout';
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
