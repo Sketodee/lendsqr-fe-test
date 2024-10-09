@@ -16,10 +16,6 @@ function App() {
       <Route path='/profile/:id' element={<UserDetails/>}/>
       </Route>
     </Routes>
-  //   <Layout>
-  //   <h1>Welcome to the Dashboard</h1>
-  //   <p>This is your main content area. You can add any components or content here.</p>
-  // </Layout>
   );
 }
 

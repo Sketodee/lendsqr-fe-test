@@ -36,7 +36,6 @@ export const useUsers = () => {
           throw new Error('Failed to fetch users');
         }
            const rawData = await response.json();
-        // const fetchedUsers: User[] = await response.json();
 
         const fetchedUsers: User[] = Array.isArray(rawData) 
         ? rawData.map(filterUserData) 

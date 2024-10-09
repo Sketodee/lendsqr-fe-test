@@ -18,11 +18,11 @@ const columns: Column[] = [
 const UserTable = () => {
   const [sortColumn, setSortColumn] = useState<keyof User | null>(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
   const { users, loading, error } = useUsers();
+  const [filteredUsers, setFilteredUsers] = useState<User[]>(users);
   const navigate = useNavigate()
   
 
@@ -32,25 +32,41 @@ const UserTable = () => {
 
   const handleFilter = (filters: any) => {
     console.log('Applying filters:', filters);
+    const { organization, username, email } = filters;
+    const filtered = users.filter((user) => {
+      return (
+        user.orgName.toLowerCase().includes(organization.toLowerCase()) ||
+        user.userName.toLowerCase().includes(username.toLowerCase()) ||
+        user.email.toLowerCase().includes(email.toLowerCase())
+      );
+    });
+
+    setFilteredUsers(filtered);
   };
 
   const goToDetails = (id: number) => {
     navigate(`/profile/${id}`); 
   };
 
-  const handleSort = (column: keyof User) => {
-    if (sortColumn === column) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
-    } else {
-      setSortColumn(column);
-      setSortDirection('asc');
-    }
-  };
+  const formatDate = (dateStr: string) => 
+    new Date(dateStr).toLocaleString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true
+    }).replace(',', '');
+  
+  const renderTableData  = (user:User, key:keyof User) => {
+    if(key === 'createdAt' ) return 'N/A'
+    if(key === 'lastActiveDate') return formatDate(user[key]) 
+    return user[key]
+    
+  }
 
   const sortedUsers = [...users].sort((a, b) => {
     if (!sortColumn) return 0;
-    if (a[sortColumn] < b[sortColumn]) return sortDirection === 'asc' ? -1 : 1;
-    if (a[sortColumn] > b[sortColumn]) return sortDirection === 'asc' ? 1 : -1;
     return 0;
   });
 
@@ -79,14 +95,7 @@ const UserTable = () => {
             <tr key={index}>
               {columns.map((column) => (
                 <td onClick={() => goToDetails(user.id)} key={column.key}>
-                  {column.key === 'createdAt' ? (
-                    // <span className={`status ${user.status.toLowerCase()}`}>
-                    //   {user.status}
-                    // </span>
-                    ""
-                  ) : (
-                    user[column.key]
-                  )}
+                  {renderTableData(user, column.key)}
                 </td>
               ))}
               <td >
