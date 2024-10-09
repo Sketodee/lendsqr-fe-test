@@ -1,20 +1,5 @@
 import React, { useState } from 'react';
-import '../filterPopup.scss';
-
-interface FilterPopupProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onFilter: (filters: FilterState) => void;
-}
-
-interface FilterState {
-  organization: string;
-  username: string;
-  email: string;
-  date: string;
-  phoneNumber: string;
-  status: string;
-}
+import { FilterPopupProps, FilterState } from '../types/types';
 
 const FilterPopup: React.FC<FilterPopupProps> = ({ isOpen, onClose, onFilter }) => {
   const [filters, setFilters] = useState<FilterState>({
@@ -47,23 +32,23 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ isOpen, onClose, onFilter }) 
     onClose();
   };
 
+
   if (!isOpen) return null;
 
   return (
     <div className="filter-popup">
       <div className="filter-content">
-        <form>
+        <form >
           <div className="form-group">
             <label htmlFor="organization">Organization</label>
-            <select
+            <input
               id="organization"
+              type='text'
               name="organization"
               value={filters.organization}
               onChange={handleInputChange}
-            >
-              <option value="">Select</option>
-              {/* Add organization options here */}
-            </select>
+              placeholder='Organization'
+            />
           </div>
 
           <div className="form-group">

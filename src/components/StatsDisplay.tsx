@@ -3,15 +3,7 @@ import { HiOutlineUsers } from "react-icons/hi2";
 import { PiUsersThreeLight } from "react-icons/pi";
 import { GrDocumentStore } from "react-icons/gr";
 import { FaCoins } from 'react-icons/fa6';
-// import '../StatsDisplay.scss';
 
-interface StatCardProps {
-  // icon: React.ReactNode;
-  icon: any;
-  title: string;
-  value: number;
-  color: string;
-}
 
 const iconMap: Record<string, React.ElementType> = {
   hioutlineuser: HiOutlineUsers,
@@ -47,9 +39,6 @@ const StatsDisplay = () => {
             </div>
           );
         })}
-        {/* {stats.map((stat, index) => (
-          <StatCard key={index} {...stat} />
-        ))} */}
       </div>
     </div>
   );

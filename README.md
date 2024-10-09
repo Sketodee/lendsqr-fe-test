@@ -1,46 +1,92 @@
-# Getting Started with Create React App
+# User Management Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This User Management Dashboard is a web application that allows authenticated users to view and manage a list of users. The app features a secure login system, a dashboard with a comprehensive user table, and detailed individual user profiles.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+1. **Secure Login**
+   - User authentication system
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. **Dashboard**
+   - Overview of key metrics 
+   - Table displaying a list of users
+   - Pagination for easy navigation through user lists
+   - Search and filter functionality for user data
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3. **User Table**
+   - Displays key information for each user (e.g., name, email, status)
+   - Clickable rows for accessing detailed user information
 
-### `npm test`
+4. **User Details Page**
+   - Comprehensive view of individual user information
+   - Displays all available data for the selected user
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14.0 or later)
+- npm (v6.0 or later)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
+   ```
+   git clone https://github.com/sketodee/lendsqr-fe-test.git
+   ```
 
-### `npm run eject`
+2. Navigate to the project directory:
+   ```
+   cd lendsqr-fe-test
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Install dependencies:
+   ```
+   npm install
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Start the development server:
+   ```
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+6. Open `http://localhost:3000` in your browser to view the app.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Usage
 
-## Learn More
+1. **Login**
+   - Navigate to the login page
+   - Enter your credentials
+   - Upon successful authentication, you'll be redirected to the dashboard
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Dashboard**
+   - View the list of users in the table
+   - Use pagination controls to navigate through pages
+   - Utilize search and filter options to find specific users
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **Viewing User Details**
+   - Click on any row in the user table
+   - You'll be redirected to a detailed view of the selected user
+
+## API Integration
+
+This app integrates with a backend API for data retrieval and management
+
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Contact
+
+Your Name - your.email@example.com
+
+Project Link: https://www.shobande-james-lendsqr-fe-test.netlify.app

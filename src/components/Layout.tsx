@@ -3,10 +3,6 @@ import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import { Outlet } from 'react-router-dom';
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
 const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
 

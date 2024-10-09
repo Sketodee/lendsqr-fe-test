@@ -1,14 +1,5 @@
 import { openDB, DBSchema, IDBPDatabase } from 'idb';
-
-export interface User {
-    id: number
-    createdAt: string;
-    lastActiveDate: string
-    userName: string;
-    orgName: string;
-    email: string;
-    phoneNumber: string;
-}
+import { User } from '../types/types';
 
 interface MyDB extends DBSchema {
     users: {
@@ -54,3 +45,5 @@ class IndexedDBService {
 }
 
 export const indexedDBService = new IndexedDBService();
+
+// export { User };

@@ -1,0 +1,244 @@
+@import './variables.scss';
+
+.user-details {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: $text-color;
+
+  .user-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .user-action-buttons {
+    display: flex;
+    gap: 10px;
+
+    .action-button {
+      padding: 10px 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: transparent;
+
+      &.blacklist {
+        color: #E4033B;
+        border: 1px solid #E4033B;
+
+        &:hover {
+          background-color: rgba(228, 3, 59, 0.1);
+        }
+      }
+
+      &.activate {
+        color: #39CDCC;
+        border: 1px solid #39CDCC;
+
+        &:hover {
+          background-color: rgba(57, 205, 204, 0.1);
+        }
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  h1 {
+    font-size: 24px;
+    color: $text-bold-color;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .user-header {
+    // display: flex;
+    // align-items: center;
+    background-color: white;
+    padding: 20px 20px 0px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+
+    .user-subheader {
+      display: flex;
+      align-items: center;
+      width: 40%;
+    }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+ 
+  @media (max-width: 480px) {
+    width: 100%; 
+  }
+
+    .user-avatar {
+      width: 100px;
+      height: 100px;
+      background-color: #f2f2f2;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: $text-bold-color;
+      margin-right: 20px;
+    }
+
+    .user-name-info {
+      flex-grow: 1;
+      border-right: 1px solid $text-color;
+      padding-right: 10px;
+
+      h2 {
+        font-size: 22px;
+        color: $text-bold-color;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      p {
+        color: $text-color;
+        font-size: 14px;
+      }
+    }
+
+    .user-tier {
+      margin-right: 40px;
+      padding-left: 10px;
+
+      p {
+        color: $text-color;
+        margin-bottom: 5px;
+      }
+
+      .stars {
+        color: #E9B200;
+      }
+    }
+
+    .user-balance {
+      border-left: 1px solid $text-color;
+      padding-left: 10px;
+
+      h3 {
+        font-size: 22px;
+        color: $text-bold-color;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      p {
+        color: $text-color;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+
+    // margin-bottom: 20px;
+    // border-bottom: 1px solid #E5E5E5;
+
+    button {
+      font-family: "Work Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      padding: 10px 20px;
+      background: none;
+      border: none;
+      color: $text-color;
+      cursor: pointer;
+
+      &.active {
+        color: #39CDCC;
+        border-bottom: 2px solid #39CDCC;
+      }
+    }
+  }
+
+  .details-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+
+    h3 {
+      font-size: 16px;
+      color: $text-bold-color;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px 80px;
+
+      .detail-item {
+        label {
+          display: block;
+          color: $text-color;
+          font-size: 12px;
+          margin-bottom: 5px;
+        }
+
+        p {
+          color: $text-bold-color;
+          font-size: 16px;
+        }
+      }
+    }
+
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px 120px;
+
+      .education-item {
+        label {
+          display: block;
+          color: $text-color;
+          font-size: 12px;
+          margin-bottom: 5px;
+        }
+
+        p {
+          color: $text-bold-color;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

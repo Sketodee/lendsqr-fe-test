@@ -4,9 +4,10 @@
 @use './sidebar.scss';
 @use './navbar.scss';
 @use './login.scss';
-@use './StatsDisplay.scss';
-@use './UserDetails.scss';
-@use './UserTable.scss';
+@use './statsDisplay.scss';
+@use './userDetails.scss';
+@use './userTable.scss';
+@use './filterPopup.scss';
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/avenir');
 
@@ -20,23 +21,3 @@ body {
   font-style: normal;
 }
 
-.work-sans-400 {
-  font-family: "Work Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.work-sans-500 {
-  font-family: "Work Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.work-sans-600 {
-  font-family: "Work Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-}
